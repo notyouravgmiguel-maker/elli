@@ -1,0 +1,675 @@
+‎<!DOCTYPE html>
+‎<html lang="en">
+‎<head>
+‎    <meta charset="UTF-8">
+‎    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+‎    <title>Happy Birthday Elli 💕</title>
+‎    <link rel="stylesheet" href="styles.css">
+‎    <link rel="preconnect" href="https://fonts.googleapis.com">
+‎    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+‎    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+‎    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twemoji-awesome/1.0.0/twemoji-awesome.css">
+‎</head>
+‎<body>
+‎    <!-- Birthday Countdown Lock Screen -->
+‎    <div class="countdown-lock" id="countdown-lock">
+‎        <div class="lock-stars" id="lock-stars"></div>
+‎        <div class="lock-content">
+‎            <div class="lock-badge">Unlocking at midnight • Finland time</div>
+‎            
+‎            <p class="lock-subtitle">Something magical is waiting just for you</p>
+‎
+‎            <div class="countdown-panel">
+‎                <div class="countdown-display">
+‎                    <div class="countdown-item">
+‎                        <div class="countdown-value" id="lock-days">00</div>
+‎                        <div class="countdown-label">Days</div>
+‎                    </div>
+‎                    <div class="countdown-separator">:</div>
+‎                    <div class="countdown-item">
+‎                        <div class="countdown-value" id="lock-hours">00</div>
+‎                        <div class="countdown-label">Hours</div>
+‎                    </div>
+‎                    <div class="countdown-separator">:</div>
+‎                    <div class="countdown-item">
+‎                        <div class="countdown-value" id="lock-minutes">00</div>
+‎                        <div class="countdown-label">Minutes</div>
+‎                    </div>
+‎                    <div class="countdown-separator">:</div>
+‎                    <div class="countdown-item">
+‎                        <div class="countdown-value" id="lock-seconds">00</div>
+‎                        <div class="countdown-label">Seconds</div>
+‎                    </div>
+‎                </div>
+‎                
+‎                <div class="countdown-glow"></div>
+‎            </div>
+‎
+‎            <div class="lock-footer">
+‎                <div class="lock-hearts">
+‎                    <span>♡</span><span>♥</span><span>♡</span>
+‎                </div>
+‎            </div>
+‎        </div>
+‎    </div>
+‎
+‎   
+‎    <!-- Floating Particles Background -->
+‎    <div id="particles-container"></div>
+‎    
+‎    <!-- Cursor Trail -->
+‎    <canvas id="cursor-trail"></canvas>
+‎    
+‎    <!-- Floating Hearts -->
+‎    <div id="floating-hearts"></div>
+‎
+‎    <!-- Advanced Music Player -->
+‎    <div class="music-player-container">
+‎        <div class="music-player" id="music-player">
+‎            <div class="player-header">
+‎                <div class="now-playing">
+‎                    <div class="music-icon">🎵</div>
+‎                    <div class="track-info">
+‎                        <div class="track-title" id="track-title">play ts bleh</div>
+‎                        <div class="track-artist" id="track-artist">For Elli</div>
+‎                    </div>
+‎                </div>
+‎                <button class="player-toggle" id="player-toggle">▼</button>
+‎            </div>
+‎            
+‎            <div class="player-body" id="player-body">
+‎                <div class="album-art">
+‎                    <div class="vinyl-record">
+‎                        <div class="vinyl-center"></div>
+‎                    </div>
+‎                </div>
+‎                
+‎                <div class="progress-container">
+‎                    <span class="time-current" id="time-current">0:00</span>
+‎                    <div class="progress-bar" id="progress-bar">
+‎                        <div class="progress-fill" id="progress-fill"></div>
+‎                        <div class="progress-handle" id="progress-handle"></div>
+‎                    </div>
+‎                    <span class="time-total" id="time-total">0:00</span>
+‎                </div>
+‎                
+‎                <div class="player-controls">
+‎                    <button class="control-btn" id="prev-btn">⏮</button>
+‎                    <button class="control-btn play-btn" id="play-btn">
+‎                        <span class="play-icon">▶</span>
+‎                        <span class="pause-icon" style="display: none;">⏸</span>
+‎                    </button>
+‎                    <button class="control-btn" id="next-btn">⏭</button>
+‎                </div>
+‎                
+‎                <div class="volume-container">
+‎                    <span class="volume-icon">🔊</span>
+‎                    <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="70">
+‎                </div>
+‎                
+‎                <div class="playlist" id="playlist">
+‎                    <div class="playlist-title">Playlist for Elli 💕</div>
+‎                    <div class="playlist-items" id="playlist-items"></div>
+‎                </div>
+‎            </div>
+‎        </div>
+‎        
+‎        <audio id="audio-player" preload="metadata"></audio>
+‎    </div>
+‎
+‎    <!-- Hero Section -->
+‎    <section class="hero">
+‎        <div class="hero-background-hearts">
+‎            <div class="bg-heart">💕</div>
+‎            <div class="bg-heart">💖</div>
+‎            <div class="bg-heart">💗</div>
+‎            <div class="bg-heart">💓</div>
+‎            <div class="bg-heart">💝</div>
+‎            <div class="bg-heart">💕</div>
+‎        </div>
+‎        <div class="hero-content">
+‎            <div class="hero-sparkles">
+‎                <span class="sparkle">✨</span>
+‎                <span class="sparkle">⭐</span>
+‎                <span class="sparkle">💫</span>
+‎                <span class="sparkle">✨</span>
+‎            </div>
+‎            <div class="birthday-celebration">
+‎                <div class="happy-text">Happy</div>
+‎                <div class="birthday-number">14</div>
+‎                <div class="birthday-text">Birthday</div>
+‎            </div>
+‎            <h2 class="sub-title">
+‎                <span class="name-text">Elli</span>
+‎                <i class="twa twa-lg twa-sparkles"></i>
+‎            </h2>
+‎            <p class="hero-subtitle">My Beautiful Love</p>
+‎            <div class="hero-date">
+‎                <i class="twa twa-2x twa-birthday-cake"></i>
+‎                <div class="date-content">
+‎                    <span class="date-main">A Special Day</span>
+‎                    <span class="date-sub">for a Special Person</span>
+‎                </div>
+‎            </div>
+‎            <div class="scroll-indicator">
+‎                <span>Scroll to explore</span>
+‎                <div class="scroll-arrow">↓</div>
+‎            </div>
+‎        </div>
+‎        <div class="hero-hearts"></div>
+‎    </section>
+‎
+‎    <!-- Countdown Section -->
+‎    <section class="countdown-section">
+‎        <div class="container">
+‎            <h2 class="section-title">Countdown to December 15th</h2>
+‎            <div id="countdown" class="countdown">
+‎                <div class="countdown-item">
+‎                    <span class="countdown-value" id="days">0</span>
+‎                    <span class="countdown-label">Days</span>
+‎                </div>
+‎                <div class="countdown-item">
+‎                    <span class="countdown-value" id="hours">0</span>
+‎                    <span class="countdown-label">Hours</span>
+‎                </div>
+‎                <div class="countdown-item">
+‎                    <span class="countdown-value" id="minutes">0</span>
+‎                    <span class="countdown-label">Minutes</span>
+‎                </div>
+‎                <div class="countdown-item">
+‎                    <span class="countdown-value" id="seconds">0</span>
+‎                    <span class="countdown-label">Seconds</span>
+‎                </div>
+‎            </div>
+‎            <p class="countdown-text">Until December 15th! 🎂</p>
+‎        </div>
+‎    </section>
+‎
+‎    <!-- Interactive Cake Section -->
+‎    <section class="cake-section">
+‎        <div class="container">
+‎            <h2 class="section-title">Make a Wish</h2>
+‎            <p class="instruction">Click the candles or blow into your microphone!</p>
+‎            <button id="mic-button" class="mic-btn">🎤 Use Microphone</button>
+‎            
+‎            <div class="cake-container">
+‎                <div class="cake-decorations">
+‎                    <div class="decoration-star">⭐</div>
+‎                    <div class="decoration-star">✨</div>
+‎                   
+‎                    <div class="decoration-star">⭐</div>
+‎                </div>
+‎                
+‎                <div class="cake">
+‎                   
+‎                    <div class="cake-layer layer-3">
+‎                        <div class="frosting-drip"></div>
+‎                        <div class="frosting-drip"></div>
+‎                        <div class="frosting-drip"></div>
+‎                    </div>
+‎                    <div class="cake-layer layer-2">
+‎                        <div class="cake-decoration">🌸</div>
+‎                        <div class="cake-decoration">🌸</div>
+‎                        <div class="cake-decoration">🌸</div>
+‎                    </div>
+‎                    <div class="cake-layer layer-1">
+‎                        <div class="sprinkles"></div>
+‎                    </div>
+‎                    
+‎                    <div class="candles">
+‎                        <div class="candle" data-candle="1">
+‎                            <div class="flame"></div>
+‎                            <div class="wick"></div>
+‎                            <div class="candle-body"></div>
+‎                        </div>
+‎                        <div class="candle" data-candle="2">
+‎                            <div class="flame"></div>
+‎                            <div class="wick"></div>
+‎                            <div class="candle-body"></div>
+‎                        </div>
+‎                        <div class="candle" data-candle="3">
+‎                            <div class="flame"></div>
+‎                            <div class="wick"></div>
+‎                            <div class="candle-body"></div>
+‎                        </div>
+‎                        <div class="candle" data-candle="4">
+‎                            <div class="flame"></div>
+‎                            <div class="wick"></div>
+‎                            <div class="candle-body"></div>
+‎                        </div>
+‎                        <div class="candle" data-candle="5">
+‎                            <div class="flame"></div>
+‎                            <div class="wick"></div>
+‎                            <div class="candle-body"></div>
+‎                        </div>
+‎                    </div>
+‎                </div>
+‎                <div class="cake-plate"></div>
+‎                <div class="cake-shadow"></div>
+‎            </div>
+‎            
+‎            <div class="wish-message" id="wish-message">
+‎                <p>✨ Your wish has been sent to the stars! ✨</p>
+‎            </div>
+‎        </div>
+‎    </section>
+‎
+‎    <!-- Balloons Section -->
+‎    <section class="balloons-section">
+‎        <div id="balloons-container"></div>
+‎    </section>
+‎
+‎    <!-- Love Letter Section -->
+‎    <section class="letter-section">
+‎        <div class="container">
+‎            <h2 class="section-title">A Letter For You</h2>
+‎            <div class="envelope-wrapper">
+‎                <div class="envelope" id="envelope">
+‎                    <div class="envelope-flap"></div>
+‎                    <div class="envelope-body"></div>
+‎                    <div class="heart-seal">💕</div>
+‎                </div>
+‎                <div class="letter" id="letter">
+‎                    <div class="letter-content">
+‎                        <p class="letter-line">My Dearest Elli,</p>
+‎                        <p class="letter-line">Every moment with you feels like a dream come true.</p>
+‎                        <p class="letter-line">Your smile lights up my darkest days,</p>
+‎                        <p class="letter-line">Your laughter is my favorite melody,</p>
+‎                        <p class="letter-line">And your love is my greatest treasure.</p>
+‎                        <p class="letter-line">On this special day, I want you to know</p>
+‎                        <p class="letter-line">That you mean the world to me.</p>
+‎                        <p class="letter-line">Happy Birthday, my beautiful angel! 🎂✨</p>
+‎                        <p class="letter-line signature">Forever yours,</p>
+‎                        <p class="letter-line signature">Miguel 💕</p>
+‎                    </div>
+‎                </div>
+‎            </div>
+‎        </div> 
+‎    </section>
+‎
+‎
+‎    <!-- Reasons I Love You Section -->
+‎    <section class="reasons-section">
+‎        <div class="container">
+‎            <h2 class="section-title">Reasons Why I Love You</h2>
+‎            <div class="reasons-grid">
+‎                <div class="reason-card">
+‎                    <div class="reason-icon"></div>
+‎                    <h3 class="reason-title">Your Smile</h3>
+‎                    <p class="reason-text">It lights up my entire world and makes everything better</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">💖</div>
+‎                    <h3 class="reason-title">Your Heart</h3>
+‎                    <p class="reason-text">So kind, caring, and full of love for everyone around you</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">✨</div>
+‎                    <h3 class="reason-title">Your Spirit</h3>
+‎                    <p class="reason-text">You bring magic and joy to every moment we share</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">🌟</div>
+‎                    <h3 class="reason-title">Your Strength</h3>
+‎                    <p class="reason-text">You inspire me to be better every single day</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">💫</div>
+‎                    <h3 class="reason-title">Your Laugh</h3>
+‎                    <p class="reason-text">The most beautiful sound I've ever heard</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">🎵</div>
+‎                    <h3 class="reason-title">Your Voice</h3>
+‎                    <p class="reason-text">Every word you speak is music to my ears</p>
+‎                </div>
+‎            </div>
+‎        </div>
+‎    </section>
+‎
+‎    <!-- Birthday Wishes Section -->
+‎    <section class="wishes-section">
+‎        <div class="container">
+‎            <h2 class="section-title">My Wishes For You</h2>
+‎            <div class="wishes-container">
+‎                <div class="wish-item">
+‎                    <div class="wish-number">01</div>
+‎                    <div class="wish-content">
+‎                        <h3>Endless Happiness</h3>
+‎                        <p>May every day bring you joy and laughter</p>
+‎                    </div>
+‎                </div>
+‎                <div class="wish-item">
+‎                    <div class="wish-number">02</div>
+‎                    <div class="wish-content">
+‎                        <h3>Dreams Come True</h3>
+‎                        <p>May all your wishes and dreams become reality</p>
+‎                    </div>
+‎                </div>
+‎                <div class="wish-item">
+‎                    <div class="wish-number">03</div>
+‎                    <div class="wish-content">
+‎                        <h3>Love Always</h3>
+‎                        <p>May you always feel loved and cherished</p>
+‎                    </div>
+‎                </div>
+‎                <div class="wish-item">
+‎                    <div class="wish-number">04</div>
+‎                    <div class="wish-content">
+‎                        <h3>Beautiful Adventures</h3>
+‎                        <p>May life surprise you with amazing moments</p>
+‎                    </div>
+‎                </div>
+‎            </div>
+‎        </div>
+‎    </section>
+‎
+‎    <!-- Interactive Chat Section -->
+‎    <section class="chat-section">
+‎        <div class="container">
+‎            <h2 class="section-title">Messages From My Heart</h2>
+‎            <div class="chat-header">
+‎                <div class="chat-avatar">💕</div>
+‎                <div class="chat-info">
+‎                    <div class="chat-name">To: Elli</div>
+‎                    <div class="chat-status">
+‎                        <span class="status-dot"></span>
+‎                        <span>Always in my heart</span>
+‎                    </div>
+‎                </div>
+‎            </div>
+‎            <div class="chat-container" id="chat-container">
+‎                <div class="chat-messages" id="chat-messages"></div>
+‎            </div>
+‎            <div class="chat-footer">
+‎                <div class="love-meter">
+‎                    
+‎                    <div class="love-meter-bar">
+‎                        <div class="love-meter-fill"></div>
+‎                    </div>
+‎                    <div class="love-meter-text"></div>
+‎                </div>
+‎            </div>
+‎        </div>
+‎    </section>
+‎
+‎    <!-- Secret Star Easter Egg -->
+‎    <div class="secret-star" id="secret-star">⭐</div>
+‎    
+‎    <!-- Surprise Button -->
+‎    <button class="surprise-btn" id="surprise-btn">
+‎        <span class="surprise-icon">✨</span>
+‎        <span class="surprise-text">Surprise Me!</span>
+‎    </button>
+‎    
+‎    <!-- Love Quote Popup -->
+‎    <div class="quote-popup" id="quote-popup">
+‎        <div class="quote-content">
+‎            <button class="quote-close" id="quote-close">×</button>
+‎            <div class="quote-icon">💕</div>
+‎            <p class="quote-text" id="quote-text"></p>
+‎            <p class="quote-author">- For Elli</p>
+‎        </div>
+‎    </div>
+‎
+‎    <!-- Final Surprise Section -->
+‎    <section class="final-section">
+‎        <div class="final-content">
+‎            <div class="final-animation">
+‎                <div class="love-circle"></div>
+‎                <div class="love-circle"></div>
+‎                <div class="love-circle"></div>
+‎            </div>
+‎            <h2 class="final-title">You are my Fav person</h2>
+‎            <p class="final-message">Happy Birthday Elli</p>
+‎            <div class="final-hearts-grid">
+‎                <span class="heart">💕</span>
+‎                <span class="heart">💖</span>
+‎                <span class="heart">💗</span>
+‎                <span class="heart">💓</span>
+‎                <span class="heart">💝</span>
+‎                <span class="heart">❤️</span>
+‎                <span class="heart">💘</span>
+‎                <span class="heart">💞</span>
+‎            </div>
+‎            <div class="final-quote">
+‎                "In you, I've found the love of my life and my closest, truest friend"
+‎            </div>
+‎        </div>
+‎        <div class="final-stars"></div>
+‎    </section>
+‎
+‎    <!-- Modal for Gallery -->
+‎    <div class="modal" id="gallery-modal">
+‎        <span class="modal-close">&times;</span>
+‎        <div class="modal-content">
+‎            <div class="modal-image" id="modal-image"></div>
+‎            <p class="modal-caption" id="modal-caption"></p>
+‎        </div>
+‎    </div>
+‎
+‎    <!-- Secret Modal -->
+‎    <div class="modal" id="secret-modal">
+‎        <span class="modal-close">&times;</span>
+‎        <div class="modal-content secret-content">
+‎            <h2>You Found The Secret! ✨</h2>
+‎            </div>
+‎        </div>
+‎    </section>
+‎
+‎    <!-- Balloons Section -->
+‎    <section class="balloons-section">
+‎        <div id="balloons-container"></div>
+‎    </section>
+‎
+‎    <!-- Love Letter Section -->
+‎    <section class="letter-section">
+‎        <div class="container">
+‎            <h2 class="section-title">A Letter For You</h2>
+‎            <div class="envelope-wrapper">
+‎                <div class="envelope" id="envelope">
+‎                    <div class="envelope-flap"></div>
+‎                    <div class="envelope-body"></div>
+‎                    <div class="heart-seal">💕</div>
+‎                </div>
+‎                <div class="letter" id="letter">
+‎                    <div class="letter-content">
+‎                        <p class="letter-line">My Dearest Elli,</p>
+‎                        <p class="letter-line">Every moment with you feels like a dream come true.</p>
+‎                        <p class="letter-line">Your smile lights up my darkest days,</p>
+‎                        <p class="letter-line">Your laughter is my favorite melody,</p>
+‎                        <p class="letter-line">And your love is my greatest treasure.</p>
+‎                        <p class="letter-line">On this special day, I want you to know</p>
+‎                        <p class="letter-line">That you mean the world to me.</p>
+‎                        <p class="letter-line">Happy Birthday, my beautiful angel! 🎂✨</p>
+‎                        <p class="letter-line signature">Forever yours,</p>
+‎                        <p class="letter-line signature">Miguel 💕</p>
+‎                    </div>
+‎                </div>
+‎            </div>
+‎        </div> 
+‎    </section>
+‎
+‎
+‎    <!-- Reasons I Love You Section -->
+‎    <section class="reasons-section">
+‎        <div class="container">
+‎            <h2 class="section-title">Reasons Why I Love You</h2>
+‎            <div class="reasons-grid">
+‎                <div class="reason-card">
+‎                    <div class="reason-icon"></div>
+‎                    <h3 class="reason-title">Your Smile</h3>
+‎                    <p class="reason-text">It lights up my entire world and makes everything better</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">💖</div>
+‎                    <h3 class="reason-title">Your Heart</h3>
+‎                    <p class="reason-text">So kind, caring, and full of love for everyone around you</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">✨</div>
+‎                    <h3 class="reason-title">Your Spirit</h3>
+‎                    <p class="reason-text">You bring magic and joy to every moment we share</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">🌟</div>
+‎                    <h3 class="reason-title">Your Strength</h3>
+‎                    <p class="reason-text">You inspire me to be better every single day</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">💫</div>
+‎                    <h3 class="reason-title">Your Laugh</h3>
+‎                    <p class="reason-text">The most beautiful sound I've ever heard</p>
+‎                </div>
+‎                <div class="reason-card">
+‎                    <div class="reason-icon">🎵</div>
+‎                    <h3 class="reason-title">Your Voice</h3>
+‎                    <p class="reason-text">Every word you speak is music to my ears</p>
+‎                </div>
+‎            </div>
+‎        </div>
+‎    </section>
+‎
+‎    <!-- Birthday Wishes Section -->
+‎    <section class="wishes-section">
+‎        <div class="container">
+‎            <h2 class="section-title">My Wishes For You</h2>
+‎            <div class="wishes-container">
+‎                <div class="wish-item">
+‎                    <div class="wish-number">01</div>
+‎                    <div class="wish-content">
+‎                        <h3>Endless Happiness</h3>
+‎                        <p>May every day bring you joy and laughter</p>
+‎                    </div>
+‎                </div>
+‎                <div class="wish-item">
+‎                    <div class="wish-number">02</div>
+‎                    <div class="wish-content">
+‎                        <h3>Dreams Come True</h3>
+‎                        <p>May all your wishes and dreams become reality</p>
+‎                    </div>
+‎                </div>
+‎                <div class="wish-item">
+‎                    <div class="wish-number">03</div>
+‎                    <div class="wish-content">
+‎                        <h3>Love Always</h3>
+‎                        <p>May you always feel loved and cherished</p>
+‎                    </div>
+‎                </div>
+‎                <div class="wish-item">
+‎                    <div class="wish-number">04</div>
+‎                    <div class="wish-content">
+‎                        <h3>Beautiful Adventures</h3>
+‎                        <p>May life surprise you with amazing moments</p>
+‎                    </div>
+‎                </div>
+‎            </div>
+‎        </div>
+‎    </section>
+‎
+‎    <!-- Interactive Chat Section -->
+‎    <section class="chat-section">
+‎        <div class="container">
+‎            <h2 class="section-title">Messages From My Heart</h2>
+‎            <div class="chat-header">
+‎                <div class="chat-avatar">💕</div>
+‎                <div class="chat-info">
+‎                    <div class="chat-name">To: Elli</div>
+‎                    <div class="chat-status">
+‎                        <span class="status-dot"></span>
+‎                        <span>Always in my heart</span>
+‎                    </div>
+‎                </div>
+‎            </div>
+‎            <div class="chat-container" id="chat-container">
+‎                <div class="chat-messages" id="chat-messages"></div>
+‎            </div>
+‎            <div class="chat-footer">
+‎                <div class="love-meter">
+‎                    
+‎                    <div class="love-meter-bar">
+‎                        <div class="love-meter-fill"></div>
+‎                    </div>
+‎                    <div class="love-meter-text"></div>
+‎                </div>
+‎            </div>
+‎        </div>
+‎    </section>
+‎
+‎    <!-- Secret Star Easter Egg -->
+‎    <div class="secret-star" id="secret-star">⭐</div>
+‎    
+‎    <!-- Surprise Button -->
+‎    <button class="surprise-btn" id="surprise-btn">
+‎        <span class="surprise-icon">✨</span>
+‎        <span class="surprise-text">Surprise Me!</span>
+‎    </button>
+‎    
+‎    <!-- Love Quote Popup -->
+‎    <div class="quote-popup" id="quote-popup">
+‎        <div class="quote-content">
+‎            <button class="quote-close" id="quote-close">×</button>
+‎            <div class="quote-icon">💕</div>
+‎            <p class="quote-text" id="quote-text"></p>
+‎            <p class="quote-author">- For Elli</p>
+‎        </div>
+‎    </div>
+‎
+‎    <!-- Final Surprise Section -->
+‎    <section class="final-section">
+‎        <div class="final-content">
+‎            <div class="final-animation">
+‎                <div class="love-circle"></div>
+‎                <div class="love-circle"></div>
+‎                <div class="love-circle"></div>
+‎            </div>
+‎            <h2 class="final-title">You are my Fav person</h2>
+‎            <p class="final-message">Happy Birthday Elli</p>
+‎            <div class="final-hearts-grid">
+‎                <span class="heart">💕</span>
+‎                <span class="heart">💖</span>
+‎                <span class="heart">💗</span>
+‎                <span class="heart">💓</span>
+‎                <span class="heart">💝</span>
+‎                <span class="heart">❤️</span>
+‎                <span class="heart">💘</span>
+‎                <span class="heart">💞</span>
+‎            </div>
+‎            <div class="final-quote">
+‎                "In you, I've found the love of my life and my closest, truest friend"
+‎            </div>
+‎        </div>
+‎        <div class="final-stars"></div>
+‎    </section>
+‎
+‎    <!-- Modal for Gallery -->
+‎    <div class="modal" id="gallery-modal">
+‎        <span class="modal-close">&times;</span>
+‎        <div class="modal-content">
+‎            <div class="modal-image" id="modal-image"></div>
+‎            <p class="modal-caption" id="modal-caption"></p>
+‎        </div>
+‎    </div>
+‎
+‎    <!-- Secret Modal -->
+‎    <div class="modal" id="secret-modal">
+‎        <span class="modal-close">&times;</span>
+‎        <div class="modal-content secret-content">
+‎            <h2>You Found The Secret! ✨</h2>
+‎            <p>You're not just beautiful on the outside,</p>
+‎            
+‎           
+‎            <p>Your heart, your soul, your everything...</p>
+‎            <p>Makes me fall in love with you more every single day.</p>
+‎            <p class="secret-final">You are my greatest adventure 💕</p>
+‎        </div>
+‎    </div>
+‎
+‎    <!-- Canvas for Confetti -->
+‎    <canvas id="confetti-canvas"></canvas>
+‎
+‎    <!-- Scripts -->
+‎    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+‎    <script src="script.js"></script>
+‎</body>
+‎</html>
