@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You So Much Elli 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated Rainbow Background */
+        .rainbow-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4, #667eea, #ff6b6b);
+            background-size: 400% 400%;
+            animation: rainbowShift 8s ease infinite;
+            z-index: -2;
+        }
+
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Hearts Background */
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.7;
+            animation: floatUp 8s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Love Message */
+        .love-message {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInScale 2s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .i-love {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: #ffffff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9),
+                         2px 2px 4px rgba(0, 0, 0, 0.8);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .elli-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2rem, 6vw, 4rem);
+            color: #ffffff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9),
+                         2px 2px 4px rgba(0, 0, 0, 0.8);
+            line-height: 1.2;
+            font-weight: 400;
+        }
+
+        /* Unicorns and Flowers */
+        .magical-creatures {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .unicorn, .flower {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .unicorn:hover, .flower:hover {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Sparkle Effects */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+
+        /* Interactive Button */
+        .love-btn {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            animation: bounce 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6);
+        }
+        
+        .love-btn:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+        
+        /* Spotify Button */
+        .spotify-btn {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            background: linear-gradient(45deg, #1db954, #1ed760);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(29, 185, 84, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .spotify-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(29, 185, 84, 0.6);
+        }
+
+        /* Button Container */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Rainbow Trail */
+        .rainbow-trail {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fadeOut 1s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(2); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0.5rem;
+            }
+            
+            .love-message {
+                margin-bottom: 2rem;
+            }
+            
+            .i-love {
+                font-size: clamp(2rem, 12vw, 3.5rem);
+            }
+            
+            .elli-name {
+                font-size: clamp(1.5rem, 8vw, 2.5rem);
+            }
+            
+            .unicorn, .flower {
+                font-size: 1.2rem;
+            }
+            
+            .love-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                margin-top: 1.5rem;
+            }
+            
+            .floating-heart {
+                font-size: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.25rem;
+            }
+            
+            .i-love {
+                font-size: clamp(1.8rem, 10vw, 3rem);
+            }
+            
+            .elli-name {
+                font-size: clamp(1.2rem, 6vw, 2rem);
+            }
+            
+            .love-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Rainbow Background -->
+    <div class="rainbow-bg"></div>
+    
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsBg"></div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Love Message -->
+        <div class="love-message">
+            <h1 class="i-love">I Love You</h1>
+            <h2 class="elli-name">So Much INDIAN  💕</h2>
+        </div>
+        
+        <!-- Magical Creatures -->
+        <div class="magical-creatures" id="creatures"></div>
+        
+        <!-- Button Container -->
+        <div class="button-container">
+            <!-- Interactive Button -->
+            <button class="love-btn" id="loveBtn">Click for More Magic ✨</button>
+            
+            <!-- Open in Spotify -->
+            
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const heartsBg = document.getElementById('heartsBg');
+            const hearts = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘', '💞'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 8 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                
+                heartsBg.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 8000);
+            }, 1000);
+        }
+
+        // Create unicorns and flowers
+        function createCreatures() {
+            const creaturesContainer = document.getElementById('creatures');
+            const unicorns = ['🦄', '🌈', '✨', '⭐', '💫'];
+            const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹', '🏵️', '🌼'];
+            
+            // Create unicorns
+            for (let i = 0; i < 5; i++) {
+                const unicorn = document.createElement('div');
+                unicorn.className = 'unicorn';
+                unicorn.textContent = unicorns[i];
+                unicorn.style.left = Math.random() * 80 + 10 + '%';
+                unicorn.style.top = Math.random() * 60 + 20 + '%';
+                unicorn.style.animationDelay = Math.random() * 6 + 's';
+                creaturesContainer.appendChild(unicorn);
+            }
+            
+            // Create flowers
+            for (let i = 0; i < 8; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.left = Math.random() * 80 + 10 + '%';
+                flower.style.top = Math.random() * 60 + 20 + '%';
+                flower.style.animationDelay = Math.random() * 6 + 's';
+                creaturesContainer.appendChild(flower);
+            }
+        }
+
+        // Create sparkle effects
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 3000);
+        }
+
+        // Rainbow trail effect
+        function createRainbowTrail(e) {
+            const trail = document.createElement('div');
+            trail.className = 'rainbow-trail';
+            trail.style.left = (e.clientX - 10) + 'px';
+            trail.style.top = (e.clientY - 10) + 'px';
+            trail.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            
+            document.body.appendChild(trail);
+            
+            setTimeout(() => trail.remove(), 1000);
+        }
+
+        // Love button magic
+        function loveButtonMagic() {
+            const messages = [
+                'You are my everything! 💕',
+                'My heart belongs to you! 💖',
+                'Forever and always! 💗',
+                'You make me complete! 💓',
+                'My beautiful Elli! 💝',
+                'You light up my world! ✨',
+                'Every moment with you is magic! 🌟',
+                'I love you more than words can say! 💘'
+            ];
+            
+            const message = messages[Math.floor(Math.random() * messages.length)];
+            
+            // Create explosion of hearts with more variety
+            const emojis = ['💕', '💖', '💗', '💓', '💝', '❤️', '💘', '💞', '🦄', '✨', '⭐'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+                    createFloatingEmoji(
+                        window.innerWidth / 2 + (Math.random() - 0.5) * 300,
+                        window.innerHeight / 2 + (Math.random() - 0.5) * 300,
+                        emoji
+                    );
+                }, i * 30);
+            }
+            
+            // Show message with enhanced animation
+            const msgDiv = document.createElement('div');
+            msgDiv.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                background: linear-gradient(45deg, #ff69b4, #ff1493, #ff69b4);
+                background-size: 300% 300%;
+                color: white;
+                padding: 2rem 3rem;
+                border-radius: 25px;
+                font-size: 1.5rem;
+                font-weight: 600;
+                z-index: 1000;
+                box-shadow: 0 20px 60px rgba(255, 105, 180, 0.6);
+                text-align: center;
+                animation: messagePopup 0.6s ease-out forwards;
+            `;
+            msgDiv.textContent = message;
+            
+            document.body.appendChild(msgDiv);
+            
+            setTimeout(() => {
+                msgDiv.style.animation = 'messageFadeOut 0.5s ease-out forwards';
+                setTimeout(() => msgDiv.remove(), 500);
+            }, 3000);
+        }
+        
+        // Create floating emoji effect
+        function createFloatingEmoji(x, y, emoji) {
+            const element = document.createElement('div');
+            element.style.cssText = `
+                position: fixed;
+                left: ${x}px;
+                top: ${y}px;
+                font-size: ${Math.random() * 20 + 20}px;
+                z-index: 1000;
+                pointer-events: none;
+                animation: floatAway 2s ease-out forwards;
+            `;
+            element.textContent = emoji;
+            
+            document.body.appendChild(element);
+            setTimeout(() => element.remove(), 2000);
+        }
+        
+        // Add CSS animations dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes messagePopup {
+                0% { transform: translate(-50%, -50%) scale(0) rotate(-10deg); }
+                50% { transform: translate(-50%, -50%) scale(1.1) rotate(5deg); }
+                100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+            }
+            
+            @keyframes messageFadeOut {
+                0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            }
+            
+            @keyframes floatAway {
+                0% { 
+                    opacity: 1; 
+                    transform: translateY(0) rotate(0deg) scale(1);
+                }
+                100% { 
+                    opacity: 0; 
+                    transform: translateY(-150px) rotate(360deg) scale(0.5);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createHearts();
+            createCreatures();
+            
+            // Mouse move effects
+            document.addEventListener('mousemove', (e) => {
+                if (Math.random() > 0.9) {
+                    createSparkle(e.clientX, e.clientY);
+                }
+                createRainbowTrail(e);
+            });
+            
+            // Love button click
+            document.getElementById('loveBtn').addEventListener('click', loveButtonMagic);
+            
+            // Touch support for mobile
+            document.addEventListener('touchstart', (e) => {
+                if (Math.random() > 0.7) {
+                    createSparkle(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            });
+            
+            document.addEventListener('touchmove', (e) => {
+                if (Math.random() > 0.8) {
+                    createRainbowTrail({ clientX: e.touches[0].clientX, clientY: e.touches[0].clientY });
+                }
+            });
+            
+            // Click creatures for extra magic
+            document.querySelectorAll('.unicorn, .flower').forEach(creature => {
+                creature.addEventListener('click', (e) => {
+                    for (let i = 0; i < 10; i++) {
+                        createSparkle(
+                            e.clientX + (Math.random() - 0.5) * 100,
+                            e.clientY + (Math.random() - 0.5) * 100
+                        );
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
